@@ -5,7 +5,7 @@
       |
       <router-link to="/about">About</router-link>
       |
-      <router-link to="/login" v-if="!jwt">Login</router-link>
+      <router-link to="/login" v-if="!jwt">Login!</router-link>
       |
       <router-link to="/logout" v-if="jwt">Logout</router-link>
     </div>
