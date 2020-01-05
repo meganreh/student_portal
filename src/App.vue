@@ -5,11 +5,11 @@
       |
       <router-link to="/about">About</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link to="/login" v-if="!jwt">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link to="/logout" v-if="jwt">Logout</router-link>
     </div>
-    <router-view />
+    <router-view v-on:theJwtChanged="updateJwt()" />
   </div>
 </template>
 
@@ -35,3 +35,19 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data: function() {
+    return {
+      jwt: null
+    };
+  },
+  created: function() {
+    this.jwt = localStorage.jwt;
+  },
+  methods: function() {
+    this.jwt = localStorage.jwt;
+  }
+};
+</script>
