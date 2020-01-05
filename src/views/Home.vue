@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <h1>Info</h1>
-    <div v-for="student in students">
-      <h2>{{ student.first_name }}</h2>
+    <div v-for="user in users">
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      Email: {{ user.email }} | Phone: {{ user.phone_number }}
+      <br />
+      Bio: {{ user.bio }}
     </div>
   </div>
 </template>
@@ -14,7 +17,7 @@ export default {
   data: function() {
     return {
       message: "Student Portal Fun Time",
-      students: [
+      users: [
         {
           id: 1,
           first_name: "Peter",
@@ -22,7 +25,7 @@ export default {
           email: "peter@email.com",
           password: "password",
           phone_number: "123456789",
-          bio: "x",
+          bio: "He's a weird guy",
           linkedin: "x",
           twitter: "x",
           website: "x",
