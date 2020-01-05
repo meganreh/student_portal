@@ -10,7 +10,7 @@
 export default {
   data: function() {
     return {
-      message: "Matt!"
+      message: "Student Portal Fun Time"
     };
   },
   created: function() {},
