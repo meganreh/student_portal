@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Edit Info</h1>
+
     First Name:
     <input type="text" v-model="user.first_name" />
     <br />
@@ -10,9 +11,11 @@
     Email:
     <input type="text" v-model="user.email" />
     <br />
+
     Password:
     <input type="text" v-model="user.password" />
     <br />
+
     Phone Number:
     <input type="text" v-model="user.phone_number" />
     <br />
