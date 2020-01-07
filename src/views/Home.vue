@@ -6,6 +6,7 @@
       Email: {{ user.email }} | Phone: {{ user.phone_number }}
       <br />
       Bio: {{ user.bio }}
+      <router-link v-bind:to="`/user/${user.id}`">Edit</router-link>
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@
 <style></style>
 
 <script>
+import axios from "axios";
 export default {
   data: function() {
     return {
