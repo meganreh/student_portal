@@ -7,6 +7,7 @@
       <h4>Bio: {{ user.bio }}</h4>
       LinkedIn: {{ user.linkedin }} | Twitter: {{ user.twitter }} Website: {{ user.website }} | Resume:
       {{ user.phone_number }} Github: {{ user.github }} | Photo: {{ user.photo }}
+<router-link v-bind:to="`/user/${user.id}`">Edit</router-link>
     </div>
   </div>
 </template>
