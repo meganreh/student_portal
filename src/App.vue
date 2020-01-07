@@ -3,7 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
+
       <router-link to="/login" v-if="!jwt">Login!</router-link>
+
       |
       <router-link to="/logout" v-if="jwt">Logout</router-link>
     </div>
@@ -22,11 +24,14 @@
 
 #nav {
   padding: 30px;
+  font-size: 30px;
+  font-family: sans-serif;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: Navy;
+  background-color: #4caf50; /* Green */
 }
 
 #nav a.router-link-exact-active {

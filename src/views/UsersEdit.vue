@@ -11,6 +11,11 @@
     Email:
     <input type="text" v-model="user.email" />
     <br />
+
+    Password:
+    <input type="text" v-model="user.password" />
+    <br />
+
     Phone Number:
     <input type="text" v-model="user.phone_number" />
     <br />
@@ -31,6 +36,7 @@
     <br />
     Photo:
     <input type="text" v-model="user.photo" />
+
     <br />
     Bio:
     <textarea cols="50" rows="10" type="text" v-model="user.bio" />
@@ -47,43 +53,35 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Student Portal Fun Time",
-      user: {
-        id: 1,
-        first_name: "Peter",
-        last_name: "Name",
-        email: "peter@email.com",
-        password: "password",
-        phone_number: "123456789",
-        bio: "He's a weird guy",
-        linkedin: "x",
-        twitter: "x",
-        website: "x",
-        resume: "x",
-        github: "x",
-        photo: "x"
-      }
+      user: {}
     };
   },
 
   created: function() {
-    this.user = {
-      id: 1,
-      first_name: "Peter",
-      last_name: "Name",
-      email: "peter@email.com",
-      password: "password",
-      phone_number: "123456789",
-      bio: "He's a weird guy",
-      linkedin: "x",
-      twitter: "x",
-      website: "x",
-      resume: "x",
-      github: "x",
-      photo: "x"
-    };
+    axios.get("/api/users/" + this.$route.params.id).then(response => {
+      this.user = response.data;
+    });
   },
 
-  methods: {}
+  methods: {
+    updateInfo: function(user) {
+      var params = {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+        phone_number: user.phone_number,
+        bio: user.bio,
+        linkedin: user.linkedin,
+        twitter: user.twitter,
+        website: user.website,
+        resume: user.resume,
+        github: user.github,
+        photo: user.photo
+      };
+      axios.patch("api/users/" + user.id, params).then(response => {
+        this.$router.push("/");
+      });
+    }
+  }
 };
 </script>
